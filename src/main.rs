@@ -1,3 +1,22 @@
-fn main() {
-    println!("Hello, world!");
+use actix_web::{App, HttpResponseBuilder, HttpServer, Responder, get, http::StatusCode};
+
+#[get("/")]
+async fn greet() -> impl Responder {
+    HttpResponseBuilder::new(StatusCode::OK).body("hi")
+}
+
+#[actix_web::main]
+async fn main() -> std::io::Result<()> {
+    let Some(uds_path) = tor_site::env::get_uds_path() else {
+        eprintln!(
+            "environment variable {} must be set to where you want to listen to",
+            tor_site::env::VAR_NAME_UDS_PATH
+        );
+        std::process::exit(1);
+    };
+
+    HttpServer::new(|| App::new().service(greet))
+        .bind_uds(uds_path)?
+        .run()
+        .await
 }

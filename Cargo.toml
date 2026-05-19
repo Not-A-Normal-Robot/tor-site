@@ -4,4 +4,4 @@ version = "0.1.0"
 edition = "2024"
 
 [dependencies]
-actix-web = { version = "4.13.0", default-features = false, features = ["compress-brotli", "compress-gzip", "compress-zstd", "http2"] }
+actix-web = { version = "4.13.0", default-features = false, features = ["compress-brotli", "compress-gzip", "compress-zstd", "http2", "macros"] }
