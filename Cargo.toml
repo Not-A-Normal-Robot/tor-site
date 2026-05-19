@@ -3,5 +3,22 @@ name = "tor-site"
 version = "0.1.0"
 edition = "2024"
 
+[lints.clippy]
+all = { level = "deny", priority = -1 }
+pedantic = { level = "warn" }
+
+[profile.release]
+opt-level = "z"
+lto = "fat"
+codegen-units = 1
+strip = "debuginfo"
+panic = "abort"
+
 [dependencies]
-actix-web = { version = "4.13.0", default-features = false, features = ["compress-brotli", "compress-gzip", "compress-zstd", "http2", "macros"] }
+actix-web = { version = "4.13.0", default-features = false, features = [
+    "compress-brotli",
+    "compress-gzip",
+    "compress-zstd",
+    "http2",
+    "macros",
+] }
