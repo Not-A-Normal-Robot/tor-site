@@ -13,7 +13,7 @@ async fn greet() -> impl Responder {
         It's hard to overstate\n\
         my satisfaction.\n\
         Aperture Science\n\
-        We do what we must\n
+        We do what we must\n\
         because we can.\n\
         For the good of all uf us.\n\
         Except the ones who are dead.\n\n\
