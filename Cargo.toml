@@ -22,3 +22,4 @@ actix-web = { version = "4.13.0", default-features = false, features = [
     "http2",
     "macros",
 ] }
+uzers = { version = "0.12.2", default-features = false }

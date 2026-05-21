@@ -1025,6 +1025,7 @@ name = "tor-site"
 version = "0.1.1"
 dependencies = [
  "actix-web",
+ "uzers",
 ]
 
 [[package]]
@@ -1094,6 +1095,15 @@ name = "utf8_iter"
 version = "1.0.4"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "b6c140620e7ffbb22c2dee59cafe6084a59b5ffc27a8859a5f0d494b5d52b6be"
+
+[[package]]
+name = "uzers"
+version = "0.12.2"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "0b8275fb1afee25b4111d2dc8b5c505dbbc4afd0b990cb96deb2d88bff8be18d"
+dependencies = [
+ "libc",
+]
 
 [[package]]
 name = "wasi"
