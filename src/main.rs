@@ -4,7 +4,28 @@ use actix_web::{App, HttpResponseBuilder, HttpServer, Responder, get, http::Stat
 
 #[get("/")]
 async fn greet() -> impl Responder {
-    HttpResponseBuilder::new(StatusCode::OK).body("hi")
+    HttpResponseBuilder::new(StatusCode::OK).body(
+        "Forms FORM-29827281-12:\n\
+        Test Assessment Report\n\n\n\
+        This was a triumph.\n\
+        I'm making a note here:\n\
+        HUGE SUCCESS.\n\
+        It's hard to overstate\n\
+        my satisfaction.\n\
+        Aperture Science\n\
+        We do what we must\n
+        because we can.\n\
+        For the good of all uf us.\n\
+        Except the ones who are dead.\n\n\
+        But there's no sense crying\n\
+        over every mistake.\n\
+        You just keep on trying\n\
+        till you run out of cake.\n\
+        And the Science gets done.\n\
+        And you make a neat gun.\n\
+        For the people who are\n\
+        still alive.",
+    )
 }
 
 #[actix_web::main]
