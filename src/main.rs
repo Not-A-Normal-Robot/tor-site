@@ -1,3 +1,5 @@
+use std::os::unix::net::UnixListener;
+
 use actix_web::{App, HttpResponseBuilder, HttpServer, Responder, get, http::StatusCode};
 
 #[get("/")]
@@ -15,8 +17,16 @@ async fn main() -> std::io::Result<()> {
         std::process::exit(1);
     };
 
+    let uds = match UnixListener::bind(uds_path) {
+        Ok(u) => u,
+        Err(e) => {
+            eprintln!("error trying to bind to uds: {e}");
+            std::process::exit(1);
+        }
+    };
+
     HttpServer::new(|| App::new().service(greet))
-        .bind_uds(uds_path)?
+        .listen_uds(uds)?
         .run()
         .await
 }
